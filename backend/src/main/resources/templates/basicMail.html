@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Correo Electrónico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #0078d4;
+            color: #ffffff;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 th:text="${titulo}">Without title</h1>
+    </div>
+    <div class="content">
+        <p th:text="${contenido}">Without content</p>
+    </div>
+</div>
+</body>
+</html>
