@@ -1,35 +1,121 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [email, setEmail] = useState("");
+  const [selectedType, setSelectedType] = useState(null);
+  const [notification, setNotification] = useState("");
+
+  const emailTypes = [
+    { id: "new-account", name: "New Account", icon: "👤", color: "#4CAF50" },
+    {
+      id: "forgot-pass",
+      name: "Forgot Password",
+      icon: "🔑",
+      color: "#2196F3",
+    },
+    {
+      id: "activation",
+      name: "Activation with Code",
+      icon: "✅",
+      color: "#FF9800",
+    },
+    {
+      id: "changed-pass",
+      name: "Password Change Notification",
+      icon: "🔐",
+      color: "#9C27B0",
+    },
+    {
+      id: "low-stock",
+      name: "Low Stock Notification",
+      icon: "📦",
+      color: "#F44336",
+    },
+    {
+      id: "purchase",
+      name: "Purchase Notification",
+      icon: "🛒",
+      color: "#009688",
+    },
+  ];
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleTypeSelect = (type) => {
+    setSelectedType(type);
+  };
+
+  const sendEmail = () => {
+    if (!email) {
+      setNotification("Please enter a valid email");
+      return;
+    }
+
+    if (!selectedType) {
+      setNotification("Please select an email type");
+      return;
+    }
+
+    // Here would be the logic to send the email
+    console.log(`Sending ${selectedType.name} email to ${email}`);
+    setNotification(`Email type "${selectedType.name}" sent to ${email}`);
+
+    // Reset after sending
+    setTimeout(() => {
+      setNotification("");
+    }, 3000);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="container">
+      <div className="email-sender-container">
+        <h1>Email Sender</h1>
+
+        <div className="input-container">
+          <label htmlFor="email">Recipient Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="email@example.com"
+          />
+        </div>
+
+        <div className="email-types">
+          <h2>Select email type:</h2>
+          <div className="type-buttons">
+            {emailTypes.map((type) => (
+              <button
+                key={type.id}
+                className={`type-button ${
+                  selectedType && selectedType.id === type.id ? "selected" : ""
+                }`}
+                style={{ backgroundColor: type.color }}
+                onClick={() => handleTypeSelect(type)}
+              >
+                <span className="icon">{type.icon}</span>
+                <span>{type.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <button
+          className="send-button"
+          onClick={sendEmail}
+          disabled={!email || !selectedType}
+        >
+          Send Email
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+        {notification && <div className="notification">{notification}</div>}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
