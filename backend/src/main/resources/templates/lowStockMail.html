@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Low Stock Notification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #ffc107;
+            color: #212529;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 30px 25px;
+            font-size: 16px;
+            background-color: #fafafa;
+        }
+        .product-box {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            color: #888;
+            text-align: center;
+            font-size: 13px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Low Stock Notification</h1>
+    </div>
+    <div class="content">
+        <p>Hello,</p>
+        <p>This is a notification that one of your products is running low on stock:</p>
+        <div class="product-box">
+            <strong>Product:</strong> <span th:text="${productName}">Product Name</span><br>
+            <strong>Current Stock:</strong> <span th:text="${currentStock}">5</span><br>
+            <strong>Minimum Threshold:</strong> <span th:text="${minStock}">10</span>
+        </div>
+        <p>We recommend restocking this item soon to avoid running out of inventory.</p>
+    </div>
+    <div class="footer">
+        This is an automated message from <span>SoundWave</span>.
+    </div>
+</div>
+</body>
+</html>

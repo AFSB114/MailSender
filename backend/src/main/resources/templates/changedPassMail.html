@@ -2,34 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Email</title>
+    <title>Password Changed</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-color: #e9ecef;
+            color: #333;
         }
         .container {
             max-width: 600px;
             margin: 40px auto;
-            padding: 0;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         .header {
+            background-color: #17a2b8;
+            color: white;
             text-align: center;
-            background-color: #0078d4;
-            color: #ffffff;
             padding: 30px 20px;
         }
         .header h1 {
             margin: 0;
-            font-size: 24px;
         }
         .content {
             padding: 30px 25px;
@@ -37,24 +34,28 @@
             background-color: #fafafa;
         }
         .footer {
+            background-color: #f1f1f1;
+            color: #888;
             text-align: center;
             font-size: 13px;
-            color: #888;
             padding: 20px;
-            background-color: #f1f1f1;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <h1 th:text="${subject}">No Subject</h1>
+        <h1>Password Changed</h1>
     </div>
     <div class="content">
-        <p th:text="${content}">No content available</p>
+        <p>Hello <span th:text="${username}">User</span>,</p>
+        <p>This is a confirmation that your password for your <span>SoundWave</span> account has been changed successfully.</p>
+        <p>If you made this change, no further action is needed.</p>
+        <p>If you did not change your password, please reset it immediately and contact our support team.</p>
     </div>
     <div class="footer">
-        This message was automatically generated. Please do not reply to this email.
+        Stay safe — never share your password with anyone. <br>
+        For help, contact us at <span>support@sound.wave.com</span>.
     </div>
 </div>
 </body>

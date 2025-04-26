@@ -1,30 +1,11 @@
 package com.sena.mailsender.DTO;
 
-public class basicMailDTO {
-    private String to;
-    private String subject;
+public class basicMailDTO extends mailDTO {
     private String content;
 
     public basicMailDTO(String to, String subject, String content) {
-        this.to = to;
-        this.subject = subject;
+        super(to, subject);
         this.content = content;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
     }
 
     public String getContent() {

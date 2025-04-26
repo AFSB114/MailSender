@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Confirmation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 30px 25px;
+            font-size: 16px;
+            background-color: #fafafa;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+        .total {
+            text-align: right;
+            padding-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            color: #888;
+            text-align: center;
+            font-size: 13px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Purchase Confirmation</h1>
+    </div>
+    <div class="content">
+        <p>Hi <span th:text="${username}">User</span>,</p>
+        <p>Thank you for your order! Here are the details of your purchase:</p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${productList}">
+                <td th:text="${product.getName()}">Product Name</td>
+                <td th:text="${product.getQuantity()}">1</td>
+                <td th:text="${product.getPrice()}">$10.00</td>
+                <td th:text="${product.getSubtotal()}">$10.00</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="total">
+            Total: <span th:text="${totalAmount}">$30.00</span>
+        </div>
+
+        <p style="margin-top: 20px;">We’ll send another email when your order ships. You can check your order status in your account.</p>
+    </div>
+    <div class="footer">
+        Thanks for shopping with <span>SoundWave</span>!
+    </div>
+</div>
+</body>
+</html>

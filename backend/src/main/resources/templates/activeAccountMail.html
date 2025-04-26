@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Activate Account</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 30px 25px;
+            font-size: 16px;
+            background-color: #fafafa;
+            text-align: center;
+        }
+        .code-box {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 15px 25px;
+            background-color: #e8f5e9;
+            color: #28a745;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 8px;
+            letter-spacing: 4px;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            color: #888;
+            text-align: center;
+            font-size: 13px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Activate Your Account</h1>
+    </div>
+    <div class="content">
+        <p>Hello <span th:text="${username}">User</span>,</p>
+        <p>Thank you for registering with <span>SoundWave</span>!</p>
+        <p>To complete your registration, please enter the following verification code in the app or website:</p>
+        <div class="code-box" >123456</div>
+        <p>If you did not create an account, please disregard this email.</p>
+    </div>
+    <div class="footer">
+        This code is valid for a limited time only. Do not share it with anyone.
+    </div>
+</div>
+</body>
+</html>

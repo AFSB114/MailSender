@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reset Password</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .header {
+      background-color: #d9534f;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .header h1 {
+      margin: 0;
+    }
+    .content {
+      padding: 30px 25px;
+      font-size: 16px;
+      background-color: #fafafa;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #d9534f;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .footer {
+      background-color: #f1f1f1;
+      color: #888;
+      text-align: center;
+      font-size: 13px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Password Reset Request</h1>
+  </div>
+  <div class="content">
+    <p>Hello <span th:text="${username}">User</span>,</p>
+    <p>We received a request to reset your password for your <span>SoundWave</span> account.</p>
+    <p>If you requested this, click the button below to reset your password:</p>
+    <a class="button" href="#">Reset Password</a>
+    <p style="margin-top: 30px;">If you didn't request a password reset, please ignore this email. This link will expire in 24 hours.</p>
+  </div>
+  <div class="footer">
+    Need help? Contact our support team at <span>support@sound.wave.com</span>.
+  </div>
+</div>
+</body>
+</html>
